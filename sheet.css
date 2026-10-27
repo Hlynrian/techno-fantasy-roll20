@@ -1,0 +1,48 @@
+/* Roll20 modern custom sheet (Legacy Sanitization must be off). */
+.tfa-sheet { --ink:#202e30; --muted:#5b6968; --accent:#26695f; --line:#c7ccc2; background:#f4f2e9; color:var(--ink); font-family:Georgia,serif; max-width:1080px; padding:26px; box-sizing:border-box; }
+.tfa-sheet * { box-sizing:border-box; }
+.tfa-sheet header { border-top:5px solid var(--accent); border-bottom:1px solid var(--line); padding:20px 0 18px; margin-bottom:22px; }
+.tfa-sheet .eyebrow { font:700 11px Arial,sans-serif; letter-spacing:2px; color:var(--accent); }
+.tfa-sheet h1 { font-size:32px; line-height:1.2; margin:10px 0; }
+.tfa-sheet p { line-height:1.5; margin:8px 0; }
+.tfa-sheet h2 { display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; font-size:19px; padding-top:18px; margin:20px 0 12px; border-top:1px solid var(--line); }
+.tfa-sheet h2 small { font:12px Arial,sans-serif; color:var(--muted); }
+.tfa-sheet h3 { font-size:17px; margin:0 0 10px; }
+.tfa-sheet label { display:flex; flex-direction:column; gap:6px; width:auto; margin:0; font:700 12px Arial,sans-serif; color:var(--ink); }
+.tfa-sheet input[type=text], .tfa-sheet input[type=number], .tfa-sheet select, .tfa-sheet textarea { width:100%; min-width:0; border:1px solid var(--line); border-radius:3px; background:#fffdf6; color:var(--ink); padding:8px; height:36px; font:14px Arial,sans-serif; box-shadow:none; }
+.tfa-sheet textarea { height:76px; resize:vertical; }
+.tfa-sheet input[readonly] { background:#e5e9e0; }
+.tfa-sheet input:focus, .tfa-sheet select:focus, .tfa-sheet textarea:focus, .tfa-sheet button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.tfa-sheet .identity { display:grid; grid-template-columns:2fr 1fr 1fr; gap:14px; }
+.tfa-sheet .mode-bar { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-top:16px; }
+.tfa-sheet .hint { font:12px/1.6 Arial,sans-serif; color:var(--muted); }
+.tfa-sheet .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+.tfa-sheet .stat { border:1px solid var(--line); border-radius:4px; padding:12px; background:#ebece2; }
+.tfa-sheet .stat button, .tfa-sheet .stat strong { display:block; margin:0 0 8px; font:700 16px Arial,sans-serif; }
+.tfa-sheet .stat input { font-size:22px; height:42px; text-align:center; }
+.tfa-sheet button[type=action] { background:var(--accent); color:white; border:0; border-radius:3px; padding:8px 14px; cursor:pointer; text-shadow:none; }
+.tfa-sheet button[type=action]:hover { background:#194d45; }
+.tfa-sheet .resources { display:grid; grid-template-columns:repeat(auto-fit,minmax(125px,1fr)); gap:14px; margin:12px 0; }
+.tfa-sheet .conditions { display:flex; flex-wrap:wrap; gap:12px 20px; padding:12px 0; }
+.tfa-sheet .conditions label { flex-direction:row; align-items:center; }
+.tfa-sheet input[type=checkbox] { width:16px; height:16px; margin:0; }
+.tfa-sheet .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.tfa-sheet .two-col section { border:1px solid var(--line); padding:16px; border-radius:4px; }
+.tfa-sheet .two-col label { margin-top:10px; }
+.tfa-sheet .entry { display:grid; grid-template-columns:3fr 1fr; gap:12px; padding:12px 0; }
+.tfa-sheet .full { grid-column:1/-1; }
+.tfa-sheet footer { margin-top:24px; padding-top:12px; border-top:1px solid var(--line); font:11px/1.6 Arial,sans-serif; color:var(--muted); }
+.tfa-sheet .foe { display:none; }
+.tfa-sheet .sheet-type[value=foe] ~ .foe { display:block; }
+.tfa-sheet .sheet-type[value=foe] ~ .party { display:none; }
+.sheet-rolltemplate-tfa .tfa-roll { border:1px solid #26695f; border-top:5px solid #26695f; background:#f4f2e9; padding:12px; color:#202e30; font:13px/1.5 Arial,sans-serif; }
+.sheet-rolltemplate-tfa h3 { margin:0 0 5px; color:#26695f; }
+.sheet-rolltemplate-tfa .outcome { font-weight:bold; letter-spacing:1px; }
+@media (max-width:650px) { .tfa-sheet { padding:16px; } .tfa-sheet .identity,.tfa-sheet .two-col { grid-template-columns:1fr; } .tfa-sheet h1 { font-size:25px; } .tfa-sheet .stats { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.tfa-sheet .weapon-entry { display:grid; grid-template-columns:2fr 1fr 1fr; gap:12px; margin:12px 0; padding:16px; border:1px solid var(--line); border-radius:4px; }
+.tfa-sheet .weapon-roll { grid-column:1/-1; justify-self:start; }
+.tfa-sheet .sheet-type[value=foe] ~ fieldset .weapon-roll { display:none; }
+.tfa-sheet .preview-list-controls { display:flex; gap:8px; margin:8px 0 20px; }
+.tfa-sheet .preview-list-controls button, .tfa-sheet .preview-delete { padding:6px 10px; border:1px solid var(--line); background:#fffdf6; border-radius:3px; color:var(--ink); cursor:pointer; }
+.tfa-sheet .preview-delete { justify-self:end; grid-column:1/-1; }
+@media (max-width:650px) { .tfa-sheet .weapon-entry { grid-template-columns:1fr 1fr; } .tfa-sheet .weapon-entry > label:first-child { grid-column:1/-1; } }
