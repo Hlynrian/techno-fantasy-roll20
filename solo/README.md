@@ -10,12 +10,13 @@ Paste `solo/sheet.html` into the custom sheet HTML editor and `solo/sheet.css` i
 
 ## Use
 
-1. Add a roster entry for each member or foe with Roll20's native Add control. Use Modify to delete or reorder entries.
-2. Enter its name and select Party or Foe. Mark Active for participants in the current battle. Reserve entries keep their information.
-3. The collapsed summary shows Active, name, profile, Health and initiative chit. Expand **Combat & details** for stats, Move, Luck, conditions, armor and campaign details.
-4. Choose **Battle · active only** to hide reserves. Returning to Full roster restores them without changing data. An inactive selected loadout is also hidden in Battle view.
-5. Click **Loadout** on a roster entry to show its weapon and trait lists in the editor below the roster. Use Add/Modify for as many weapons and traits as needed. A new entry links to the selected member when edited. Finish editing it before selecting another member. Nothing is reassigned when you switch selection; duplicate display names are supported because links use stable row identifiers internally.
-6. Roll from that member's stat buttons or their weapon entries. Chat shows the member's name, never the crew name. Weapon rolls use the owning member's MA/RA and the clicked weapon's damage. A member must be named and Active to roll. Foes have full TN inputs and no roll buttons or Luck.
+1. Choose **Crew** or **Foes** at the top. Create two separate Roll20 Characters in the same game—one Crew roster and one Foes roster—to keep opposition separate. Foes mode makes all entries use full TNs, hides player-only controls, and prevents every stat/weapon/armor roll. Switching back restores existing profile choices, stats and loadouts; it does not move or delete entries. New entries use **Sheet default**, inheriting the roster type. Existing mixed rosters remain supported in Crew mode.
+2. Add a roster entry for each member or foe with Roll20's native Add control. Use Modify to delete or reorder entries.
+3. Enter its name and select Party or Foe. Mark Active for participants in the current battle. Reserve entries keep their information.
+4. The collapsed summary shows Active, name, profile, Health and initiative chit. Expand **Combat & details** for stats, Move, Luck, conditions, armor and campaign details.
+5. Choose **Battle · active only** to hide reserves. Returning to Full roster restores them without changing data. An inactive selected loadout is also hidden in Battle view.
+6. Click **Loadout** on a roster entry to show its weapon and trait lists in the editor below the roster. Use Add/Modify for as many weapons and traits as needed. A new entry links to the selected member when edited. Finish editing it before selecting another member. Nothing is reassigned when you switch selection; duplicate display names are supported because links use stable row identifiers internally.
+7. Roll from that member's stat buttons or their weapon entries. Chat shows the member's name, never the crew name. Weapon rolls use the owning member's MA/RA and the clicked weapon's damage. A member must be named and Active to roll. Foes have full TN inputs and no roll buttons or Luck.
 
 Party stat bonuses and Foe TNs are separate fields. Profile switches preserve both. HP, Move and other shared fields remain on the entry. Defaults are HP 15, Move 5, Party bonuses 0, Foe TNs 11; allocate values manually. Health, Luck, shared Luck, Boons, Bumps, Heat and conditions are manual trackers. Shared Luck is intended for resources such as a subplot pool, not automatic pooling of personal Luck.
 
@@ -25,7 +26,7 @@ Only one loadout editor is visible at a time. This avoids nested repeating lists
 
 ## Validation
 
-- Eight solo worker tests cover filtering without data loss, loadout ownership, row-specific roll name/stats/damage, new-entry assignment, inactive/Foe roll guards, armor and deletion behavior.
+- Ten solo worker tests cover filtering without data loss, loadout ownership, row-specific roll name/stats/damage, new-entry assignment, inactive/Foe roll guards, armor deletion behavior, roster-wide Foe roll guards and safe mode switching.
 - Thirteen existing RPG calculation tests also pass.
 - Browser checks cover collapse/expand, active-only view, Foe TNs and hidden roll/Luck controls, loadout switching with preserved entries, and a 520px layout.
 - Live Roll20 validation is still required for native repeating controls, saved data across sessions, sheet-worker events and computed chat templates. The preview simulates the controls and does not save data or roll dice.

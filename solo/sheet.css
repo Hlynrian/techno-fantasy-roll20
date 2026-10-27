@@ -49,3 +49,12 @@
 
 .solo-sheet .quick-stats,.solo-sheet .member-combat {display:none;}
 .solo-sheet .expand-toggle:checked ~ .quick-stats,.solo-sheet .expand-toggle:checked ~ .member-combat {display:grid;}
+
+.solo-sheet .crew-bar {grid-template-columns:2fr 1fr 1.5fr .55fr .55fr .8fr;}
+.solo-sheet .foes-title {display:none;}
+.solo-sheet .roster-type[value=foes] ~ header .crew-title,.solo-sheet .roster-type[value=foes] ~ .crew-bar .crew-only {display:none;}
+.solo-sheet .roster-type[value=foes] ~ header .foes-title {display:inline;}
+.solo-sheet .roster-type[value=foes] ~ fieldset .member-profile,.solo-sheet .roster-type[value=foes] ~ fieldset .party-stat,.solo-sheet .roster-type[value=foes] ~ fieldset .party-only {display:none;}
+.solo-sheet .roster-type[value=foes] ~ fieldset .foe-stat {display:block;}
+.solo-sheet .roster-type[value=foes] ~ fieldset .member-summary {grid-template-columns:50px minmax(110px,2fr) 46px 46px 46px 65px;}
+@media(max-width:650px){.solo-sheet .crew-bar{grid-template-columns:1fr 1fr;}.solo-sheet .roster-type[value=foes] ~ fieldset .member-summary{grid-template-columns:40px minmax(90px,1fr) 65px;}}

@@ -54,3 +54,16 @@ test('Armor output uses member name and per-die reduction',()=>{
 test('Deleting selected member clears editor without deleting other loadouts',()=>{
  const s=setup();s.attrs.selected_member='alice';s.sections.repeating_members=['bob','foe'];s.events['remove:repeating_members']();assert.equal(s.attrs.selected_ready,'0');assert.equal(s.attrs.repeating_weapons_blade_owner,'alice');
 });
+test('Foes roster makes every entry a no-roll foe, including existing Party entries',()=>{
+ const s=setup();s.attrs.roster_type='foes';s.attrs.selected_member='alice';s.events['change:roster_type']();
+ assert.equal(s.attrs.repeating_members_alice_display_profile,'foe');assert.equal(s.attrs.selected_can_roll,'0');
+ s.events['clicked:repeating_members:ma']({sourceAttribute:'repeating_members_alice_ma'});
+ s.events['clicked:repeating_members:armor']({sourceAttribute:'repeating_members_alice_armor'});
+ s.events['clicked:repeating_weapons:attack']({sourceAttribute:'repeating_weapons_blade_attack'});assert.equal(s.rolls,0);
+ assert.equal(s.attrs.repeating_members_alice_profile,'party');assert.equal(s.attrs.repeating_members_alice_ma,3);
+ s.attrs.roster_type='crew';s.events['change:roster_type']();assert.equal(s.attrs.repeating_members_alice_display_profile,'party');assert.equal(s.attrs.selected_can_roll,'1');
+});
+test('New default entries inherit roster type without rewriting saved profile or loadout ownership',()=>{
+ const s=setup();s.attrs.repeating_members_alice_profile='';s.attrs.roster_type='foes';s.events['sheet:opened']();assert.equal(s.attrs.repeating_members_alice_display_profile,'foe');
+ assert.equal(s.attrs.repeating_weapons_blade_owner,'alice');s.attrs.roster_type='crew';s.events['change:roster_type']();assert.equal(s.attrs.repeating_members_alice_display_profile,'party');assert.equal(s.attrs.repeating_members_foe_display_profile,'foe');
+});

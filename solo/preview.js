@@ -4,18 +4,20 @@ const templates={};
 function field(row,name){return row.querySelector(`[name="attr_${name}"]:not([type="hidden"])`) || row.querySelector(`[name="attr_${name}"]`);}
 function value(row,name){return field(row,name)?.value||'';}
 function sync(){
+ const rosterType=document.querySelector('select[name=attr_roster_type]').value;
+ document.querySelector('.roster-type').setAttribute('value',rosterType);
  const battle=document.querySelector('[name=attr_crew_view]').value==='battle';
  const members=[...document.querySelectorAll('.repeating_members > .preview-row')];
  for(const row of members){
   const active=field(row,'active').checked;
   row.querySelector('.active-state').setAttribute('value',active?'1':'0');
-  row.querySelector('.profile-state').setAttribute('value',value(row,'profile'));
+  row.querySelector('.profile-state').setAttribute('value',rosterType==='foes'?'foe':value(row,'profile')||'party');
   row.querySelector('.row-visible').setAttribute('value',!battle||active?'1':'0');
  }
  const member=members.find(row=>row.dataset.id===selected&&(!battle||field(row,'active').checked));
  document.querySelector('[name=attr_selected_name]').textContent=member?value(member,'member_name'):'Choose Loadout on a roster entry';
  document.querySelector('.selected-ready').setAttribute('value',member?'1':'0');
- document.querySelector('.selected-can-roll').setAttribute('value',member&&field(member,'active').checked&&value(member,'profile')!=='foe'?'1':'0');
+ document.querySelector('.selected-can-roll').setAttribute('value',member&&field(member,'active').checked&&rosterType!=='foes'&&value(member,'profile')!=='foe'?'1':'0');
  for(const type of ['weapons','traits'])for(const row of document.querySelectorAll('.repeating_'+type+' > .preview-row')){
   const visible=member&&value(row,'owner')===selected;
   row.querySelector('.row-visible').setAttribute('value',visible?'1':'0');
@@ -42,6 +44,7 @@ for(const type of ['members','weapons','traits']){
  const controls=document.createElement('div');controls.className='preview-controls';const add=document.createElement('button');add.textContent='Add '+(type==='members'?'member / foe':type==='weapons'?'weapon':'trait');add.onclick=()=>addRow(type);controls.append(add);section.after(controls);
 }
 document.querySelector('[name=attr_crew_view]').addEventListener('change',sync);
+document.querySelector('select[name=attr_roster_type]').addEventListener('change',sync);
 addRow('members',{member_name:'Ingrid Ironhand',ma:'3',md:'2',health:'15',luck:'2'});
 addRow('members',{member_name:'Greycrow',ra:'2',active:'1'});
 addRow('members',{member_name:'Reserve scout',active:'0'});

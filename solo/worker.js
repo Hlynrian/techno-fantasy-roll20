@@ -8,12 +8,14 @@ function readRows(section, fields, done) {
     })));
   });
 }
+function effectiveProfile(profile, rosterType) { return rosterType === 'foes' ? 'foe' : profile || 'party'; }
 function refreshCrew() {
-  getAttrs(['crew_view','selected_member'], settings => {
+  getAttrs(['crew_view','selected_member','roster_type'], settings => {
     readRows('repeating_members', memberFields, members => {
       const selected = members.find(m => m.id === settings.selected_member && (settings.crew_view !== 'battle' || m.active === '1'));
-      const updates = {selected_name:selected ? selected.member_name || 'Unnamed member' : 'Choose Loadout on a roster entry', selected_ready:selected ? '1' : '0', selected_can_roll:selected && selected.profile !== 'foe' && selected.active === '1' ? '1' : '0'};
+      const updates = {selected_name:selected ? selected.member_name || 'Unnamed member' : 'Choose Loadout on a roster entry', selected_ready:selected ? '1' : '0', selected_can_roll:selected && effectiveProfile(selected.profile, settings.roster_type) !== 'foe' && selected.active === '1' ? '1' : '0'};
       members.forEach(m => {
+        updates[`repeating_members_${m.id}_display_profile`] = effectiveProfile(m.profile, settings.roster_type);
         updates[`repeating_members_${m.id}_row_visible`] = settings.crew_view !== 'battle' || m.active === '1' ? '1' : '0';
       });
       setAttrs(updates, {silent:true});
@@ -27,7 +29,7 @@ function refreshCrew() {
     });
   });
 }
-on('sheet:opened change:crew_view change:repeating_members remove:repeating_members', refreshCrew);
+on('sheet:opened change:crew_view change:roster_type change:repeating_members remove:repeating_members', refreshCrew);
 on('clicked:repeating_members:loadout', event => {
   const id = event.sourceAttribute.replace(/^repeating_members_/, '').replace(/_loadout$/, '');
   setAttrs({selected_member:id}, {silent:true}, refreshCrew);
@@ -46,8 +48,9 @@ on('clicked:repeating_members:loadout', event => {
 });
 function fetchMember(id, callback) {
   const prefix=`repeating_members_${id}`;
-  getAttrs(memberFields.map(f=>`${prefix}_${f}`), attrs => {
+  getAttrs([...memberFields.map(f=>`${prefix}_${f}`), 'roster_type'], attrs => {
     const member={}; memberFields.forEach(f=>member[f]=attrs[`${prefix}_${f}`]);
+    member.profile = effectiveProfile(member.profile, attrs.roster_type);
     callback(member);
   });
 }
