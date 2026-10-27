@@ -2,6 +2,13 @@
 
 An unofficial first version based on the uploaded combined 2E rulebook (Four-Color Studios, April 2026). The rulebook is not included in this project.
 
+## Choose a sheet
+
+- **RPG / individual character:** use the original `sheet.html` and `sheet.css` in this folder.
+- **Solo / co-op crew:** use the separate [Crew sheet](solo/README.md) in `solo/`, with compact roster entries, active-only Battle view and member-linked loadouts.
+
+Each version is installed in its own Roll20 game. The original RPG sheet files are unchanged.
+
 ## Install in Roll20
 
 1. The game's creator needs access to Roll20's custom character sheet feature (normally a Pro subscription).

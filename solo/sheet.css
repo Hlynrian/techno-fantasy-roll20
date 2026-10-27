@@ -1,0 +1,51 @@
+.solo-sheet { --ink:#253331;--line:#c9cec3;--accent:#286559; background:#f3f2e9;color:var(--ink);font:13px Arial,sans-serif;max-width:1100px;padding:20px;box-sizing:border-box; }
+.solo-sheet * {box-sizing:border-box;}
+.solo-sheet header {border-top:4px solid var(--accent);padding-top:12px;margin-bottom:16px;}
+.solo-sheet .eyebrow {color:var(--accent);font-size:10px;letter-spacing:1.5px;font-weight:bold;}
+.solo-sheet h1 {font:28px Georgia,serif;margin:7px 0;}
+.solo-sheet h2 {font:18px Georgia,serif;margin:18px 0 10px;border-top:1px solid var(--line);padding-top:12px;}
+.solo-sheet h3 {font:16px Georgia,serif;margin:12px 0 8px;}
+.solo-sheet label {display:flex;flex-direction:column;gap:4px;width:auto;font-size:10px;font-weight:bold;margin:0;min-width:0;}
+.solo-sheet input[type=text],.solo-sheet input[type=number],.solo-sheet select,.solo-sheet textarea {width:100%;min-width:0;height:29px;border:1px solid var(--line);border-radius:3px;padding:4px 6px;background:#fffdf6;color:var(--ink);font:12px Arial,sans-serif;box-shadow:none;}
+.solo-sheet textarea {height:48px;resize:vertical;}
+.solo-sheet input[type=checkbox] {width:15px;height:15px;margin:0;}
+.solo-sheet button[type=action] {background:var(--accent);color:white;border:0;border-radius:3px;padding:6px 8px;font:11px Arial,sans-serif;cursor:pointer;text-shadow:none;}
+.solo-sheet input:focus,.solo-sheet select:focus,.solo-sheet textarea:focus,.solo-sheet button:focus-visible {outline:2px solid var(--accent);outline-offset:1px;}
+.solo-sheet .crew-bar {display:grid;grid-template-columns:2fr 1.6fr .6fr .6fr .8fr;gap:8px;}
+.solo-sheet .hint {font-size:11px;line-height:1.5;color:#58665e;margin:7px 0;}
+.solo-sheet .member-card {border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;background:#e9ece2;margin:8px 0;padding:10px;}
+.solo-sheet .member-summary {display:grid;grid-template-columns:50px minmax(110px,2fr) 70px 46px 46px 46px 65px;gap:7px;align-items:end;}
+.solo-sheet .check {align-items:center;gap:6px;padding-bottom:6px;}
+.solo-sheet .quick-stats {display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin:9px 0;}
+.solo-sheet .quick-stats label {text-align:center;}
+.solo-sheet .quick-stats input {text-align:center;}
+.solo-sheet .party-stat {display:grid;grid-template-columns:1fr;gap:3px;}
+.solo-sheet .quick-stats button {padding:3px;font-size:10px;}
+.solo-sheet .foe-stat,.solo-sheet .foe-only {display:none;}
+.solo-sheet .profile-state[value=foe] ~ .quick-stats .party-stat,.solo-sheet .profile-state[value=foe] ~ * .party-only {display:none;}
+.solo-sheet .profile-state[value=foe] ~ .quick-stats .foe-stat {display:block;}
+.solo-sheet .profile-state[value=foe] ~ .expand-toggle:checked ~ .foe-only {display:block;}
+.solo-sheet .active-state[value="0"] ~ .quick-stats button,.solo-sheet .active-state[value="0"] ~ .member-details button {display:none;}
+.solo-sheet .member-combat {display:grid;grid-template-columns:60px 60px 65px 1fr;gap:8px;}
+.solo-sheet .expand-toggle {margin-top:10px!important;vertical-align:middle;}
+.solo-sheet .expand-label {font-size:11px;margin-left:6px;}
+.solo-sheet .member-details {display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:10px;}
+.solo-sheet .expand-toggle:checked ~ .member-details {display:block;}
+.solo-sheet .detail-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:8px;}
+.solo-sheet .row-visible[value="0"] ~ .member-card,.solo-sheet .row-visible[value="0"] ~ .loadout-card {display:none;}
+.solo-sheet .loadout-card {border:1px solid var(--line);padding:10px;margin:7px 0;border-radius:4px;}
+.solo-sheet .weapon-grid {display:grid;grid-template-columns:2fr 1fr .7fr .9fr 60px;gap:8px;align-items:end;margin-bottom:8px;}
+.solo-sheet .trait-grid {display:grid;grid-template-columns:4fr 1fr;gap:8px;margin-bottom:8px;}
+.solo-sheet .selected-ready[value="0"] ~ .loadout-editor {display:none;}
+.solo-sheet .selected-can-roll[value="0"] ~ .loadout-editor button[name=act_attack] {display:none;}
+.solo-sheet footer {margin-top:16px;font-size:10px;color:#58665e;}
+.solo-sheet .preview-controls {margin:7px 0;display:flex;gap:8px;}
+.solo-sheet .preview-controls button {padding:5px 8px;background:#fffdf6;border:1px solid var(--line);border-radius:3px;cursor:pointer;}
+@media(max-width:650px){.solo-sheet{padding:12px;}.solo-sheet .crew-bar{grid-template-columns:1fr 1fr;}.solo-sheet .member-summary{grid-template-columns:40px minmax(90px,1fr) 65px;}.solo-sheet .quick-stats{grid-template-columns:repeat(4,minmax(0,1fr));}.solo-sheet .weapon-grid{grid-template-columns:1fr 1fr;}.solo-sheet .detail-grid{grid-template-columns:1fr 1fr;}}
+
+.sheet-rolltemplate-tfa .tfa-roll { border:1px solid #26695f; border-top:5px solid #26695f; background:#f4f2e9; padding:12px; color:#202e30; font:13px/1.5 Arial,sans-serif; }
+.sheet-rolltemplate-tfa h3 { margin:0 0 5px; color:#26695f; }
+.sheet-rolltemplate-tfa .outcome { font-weight:bold; letter-spacing:1px; }
+
+.solo-sheet .quick-stats,.solo-sheet .member-combat {display:none;}
+.solo-sheet .expand-toggle:checked ~ .quick-stats,.solo-sheet .expand-toggle:checked ~ .member-combat {display:grid;}

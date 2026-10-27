@@ -1,0 +1,117 @@
+<div class="solo-sheet"><header><div class="eyebrow">TECHNO-FANTASY ADVENTURE 2E · SOLO / CO-OP</div><h1>Crew dossier</h1></header><div class="crew-bar"><label>Crew name<input type="text" name="attr_character_name" value="" ></label><label>View<select name="attr_crew_view"><option value="roster">Full roster</option><option value="battle">Battle · active only</option></select></label><label>Round<input type="number" name="attr_round" value="1" ></label><label>Heat<input type="number" name="attr_heat" value="0" ></label><label>Shared Luck<input type="number" name="attr_shared_luck" value="0" ></label></div><p class="hint">Add members and foes below. Mark participants Active, then switch to Battle view. Expand details only when needed. Loadout opens that entry’s weapon and trait lists. X-Factor is a reminder; apply its TN, damage and action effects manually.</p><h2>Roster</h2><fieldset class="repeating_members"><input type="hidden" name="attr_row_visible" class="row-visible" value="1"><div class="member-card"><input type="hidden" name="attr_profile" class="profile-state" value="party"><input type="hidden" name="attr_active" class="active-state" value="1"><div class="member-summary"><label class="check"><input type="checkbox" name="attr_active" value="1" checked>Active</label><label>Name<input type="text" name="attr_member_name" value="" ></label><label>Profile<select name="attr_profile"><option value="party">Party</option><option value="foe">Foe</option></select></label><label>HP<input type="number" name="attr_health" value="15" ></label><label>Max<input type="number" name="attr_health_max" value="15" ></label><label>Chit<input type="text" name="attr_initiative" value="" ></label><button type="action" name="act_loadout">Loadout</button></div><input type="checkbox" name="attr_expanded" class="expand-toggle" value="1" title="Expand combat and details"><span class="expand-label">Combat &amp; details</span><div class="quick-stats"><label><span>MA</span><span class="party-stat"><button type="action" name="act_ma">Roll</button><input type="number" name="attr_ma" value="0" aria-label="MA bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_ma" value="11" aria-label="MA target number"></span></label><label><span>MD</span><span class="party-stat"><button type="action" name="act_md">Roll</button><input type="number" name="attr_md" value="0" aria-label="MD bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_md" value="11" aria-label="MD target number"></span></label><label><span>RA</span><span class="party-stat"><button type="action" name="act_ra">Roll</button><input type="number" name="attr_ra" value="0" aria-label="RA bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_ra" value="11" aria-label="RA target number"></span></label><label><span>RD</span><span class="party-stat"><button type="action" name="act_rd">Roll</button><input type="number" name="attr_rd" value="0" aria-label="RD bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_rd" value="11" aria-label="RD target number"></span></label><label><span>FIT</span><span class="party-stat"><button type="action" name="act_fit">Roll</button><input type="number" name="attr_fit" value="0" aria-label="FIT bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_fit" value="11" aria-label="FIT target number"></span></label><label><span>INT</span><span class="party-stat"><button type="action" name="act_int">Roll</button><input type="number" name="attr_int" value="0" aria-label="INT bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_int" value="11" aria-label="INT target number"></span></label><label><span>CHA</span><span class="party-stat"><button type="action" name="act_cha">Roll</button><input type="number" name="attr_cha" value="0" aria-label="CHA bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_cha" value="11" aria-label="CHA target number"></span></label><label><span>PER</span><span class="party-stat"><button type="action" name="act_per">Roll</button><input type="number" name="attr_per" value="0" aria-label="PER bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_per" value="11" aria-label="PER target number"></span></label></div><p class="foe-only hint">Foe: full target numbers, no rolls.</p><div class="member-combat"><label>Move<input type="number" name="attr_move" value="5" ></label><label class="party-only">Luck<input type="number" name="attr_luck" value="0" min="0"></label><label>X-Factor<input type="number" name="attr_xfactor" value="0" ></label><label>Conditions<input type="text" name="attr_conditions" value="" ></label></div><div class="member-details"><div class="detail-grid"><label>Role<select name="attr_role"><option>Fighter</option><option>Shooter</option><option>Champion</option><option>Specialist</option><option>Other</option></select></label><label>Type / power level<input type="text" name="attr_power" value="Standard" ></label><label>Armor dice<input type="number" name="attr_armor_dice" value="0" ></label><label>Incoming damage bonus<input type="number" name="attr_incoming_damage" value="2" ></label><label>Armor / shield<input type="text" name="attr_armor_name" value="" ></label><div class="party-only"><button type="action" name="act_armor">Armor save</button></div><label class="party-only">Background<input type="text" name="attr_background"></label><label>Boons<input type="number" name="attr_boons" value="0" ></label><label>Bumps<input type="number" name="attr_bumps" value="0" ></label></div><label>Description / gear / campaign notes<textarea name="attr_notes"></textarea></label></div></div></fieldset><h2>Selected loadout: <span name="attr_selected_name">Choose Loadout on a roster entry</span></h2><input type="hidden" name="attr_selected_member"><input type="hidden" name="attr_selected_ready" class="selected-ready" value="0"><input type="hidden" name="attr_selected_can_roll" class="selected-can-roll" value="0"><div class="loadout-editor"><p class="hint">Lists below belong to the selected roster entry. New entries are linked when you edit them. Use Add and Modify to add, delete or reorder. Selecting another member preserves existing lists.</p><h3>Weapons</h3><fieldset class="repeating_weapons"><input type="hidden" name="attr_owner"><input type="hidden" name="attr_row_visible" class="row-visible" value="1"><div class="loadout-card"><div class="weapon-grid"><label>Weapon<input type="text" name="attr_weapon_name" value="" ></label><label>Type<select name="attr_weapon_type"><option value="melee">Melee</option><option value="ranged">Ranged</option></select></label><label>Damage<input type="number" name="attr_weapon_damage" value="2" ></label><label>Range / reach<input type="number" name="attr_weapon_range" value="1" ></label><button type="action" name="act_attack">Attack</button></div><label>Properties<textarea name="attr_weapon_properties"></textarea></label></div></fieldset><h3>Traits & abilities</h3><fieldset class="repeating_traits"><input type="hidden" name="attr_owner"><input type="hidden" name="attr_row_visible" class="row-visible" value="1"><div class="loadout-card"><div class="trait-grid"><label>Trait / ability<input type="text" name="attr_trait_name" value="" ></label><label>Uses<input type="number" name="attr_trait_uses" value="0" ></label></div><label>Effects / limitations<textarea name="attr_trait_notes"></textarea></label></div></fieldset></div><label>Crew notes<textarea name="attr_crew_notes"></textarea></label><footer>Unofficial TFA 2E sheet · Rules © Scott R. Pyle / Four-Color Studios</footer></div>
+<rolltemplate class="sheet-rolltemplate-tfa"><div class="tfa-roll"><h3>{{name}}</h3><strong>{{action}}</strong>{{#armor}}<p>Armor dice: {{save0}} {{save1}} {{save2}} {{save3}} {{save4}} {{save5}} {{save6}} {{save7}} {{save8}} {{save9}} {{save10}} {{save11}}</p><p>Damage negated: {{computed::saved}}</p>{{#rollTotal() computed::short 1}}<p>If using an Energy Field: it shorts out after this attack.</p>{{/rollTotal() computed::short 1}}{{/armor}}{{^armor}}<p>Dice: {{d1}} {{d2}} {{d3}}</p><p>Stat {{bonus}} · modifier {{mod}}</p><p>Total <b>{{computed::total}}</b> vs <b>{{target}}</b></p><p>Results: {{computed::margin}}</p>{{#rollTotal() computed::success 1}}<p class="outcome">SUCCESS</p>{{/rollTotal() computed::success 1}}{{#rollTotal() computed::success 0}}<p class="outcome">FAILURE</p>{{/rollTotal() computed::success 0}}{{#rollTotal() attack 1}}<p>Damage before armor: {{computed::damage}}</p>{{/rollTotal() attack 1}}{{#rollTotal() defense 1}}{{#rollTotal() computed::success 0}}<p>Incoming damage before armor: {{computed::damage}}</p>{{/rollTotal() computed::success 0}}{{/rollTotal() defense 1}}{{#rollTotal() computed::db 1}}<p>Double Bonus rolled. Benefits require success; attack damage includes +2. On MD you may disengage 2″; on RD you may dive 2″ into nearby terrain. Check Traits for other effects.</p>{{/rollTotal() computed::db 1}}{{#rollTotal() computed::triples 1}}<p>Successful triples: +1 included.</p>{{/rollTotal() computed::triples 1}}{{#rollTotal() computed::ones 1}}<p>Double 1s: check ammunition, shield and opposing abilities.</p>{{/rollTotal() computed::ones 1}}{{#rollTotal() computed::twos 1}}<p>Double 2s: check special-weapon ammunition, shield and opposing abilities.</p>{{/rollTotal() computed::twos 1}}{{#rollTotal() computed::sixdef 1}}<p>Successful RD with double 6s: the GC attacker runs out of ammo.</p>{{/rollTotal() computed::sixdef 1}}{{/armor}}</div></rolltemplate>
+<script type="text/worker">
+/* Roll20 sheet worker. Embedded into sheet.html by build.py. */
+const STATS = ['ma', 'md', 'ra', 'rd', 'fit', 'int', 'cha', 'per'];
+const num = value => Number.isFinite(Number(value)) ? Number(value) : 0;
+function resolveCheck(dice, bonus, modifier, target, mode, kind, weapon, dbMin = 5) {
+  const counts = dice.reduce((a, d) => (a[d] = (a[d] || 0) + 1, a), {});
+  const base = dice.reduce((a, b) => a + b, 0) + bonus + modifier;
+  const success = mode === 'pvp' && kind === 'attack' ? base > target : base >= target;
+  const triples = Object.values(counts).some(n => n === 3);
+  const db = Object.entries(counts).some(([die, count]) => Number(die) >= dbMin && count >= 2);
+  const total = base + (success && triples ? 1 : 0);
+  const margin = total - target;
+  let damage = 0;
+  if (kind === 'attack' && success) damage = Math.max(0, margin + weapon + (db ? 2 : 0));
+  if (kind === 'defense' && !success) damage = Math.max(0, -margin + weapon);
+  return {total, margin, success, db, triples, damage, ones: (counts[1] || 0) >= 2, twos: (counts[2] || 0) >= 2, sixes: (counts[6] || 0) >= 2};
+}
+function resolveArmor(dice) { return dice.reduce((sum, die) => sum + (die === 6 ? 2 : die >= 4 ? 1 : 0), 0); }
+function safeText(s) { return String(s || '').replace(/[{}|\[\]<>\r\n]/g, ' ').slice(0, 150); }
+function rollStat(a, stat, kind, damage, weaponName) {
+    if (a.sheet_type === 'foe') return;
+    const targetLabel = a.play_mode === 'pvp' && kind !== 'check' ? 'Opposing roll total' : 'Target number';
+    startRoll(`&{template:tfa} {{name=${safeText(a.character_name)}}} {{action=${safeText(weaponName || stat.toUpperCase())} ${kind}}} {{weapon=[[${damage === null ? "?{Weapon damage bonus|2}" : damage}]]}} {{d1=[[1d6]]}} {{d2=[[1d6]]}} {{d3=[[1d6]]}} {{bonus=[[${num(a[stat])}]]}} {{mod=[[?{Situational modifier|0}]]}} {{target=[[?{${targetLabel}|13}]]}} {{dbmin=[[?{Double Bonus range|Normal doubles 5 or 6,5|Improved doubles 4 to 6,4|Restricted double 6 only,6}]]}} {{total=[[0]]}} {{margin=[[0]]}} {{success=[[0]]}} {{damage=[[0]]}} {{attack=[[${kind === 'attack' ? 1 : 0}]]}} {{defense=[[${kind === 'defense' ? 1 : 0}]]}} {{db=[[0]]}} {{triples=[[0]]}} {{ones=[[0]]}} {{twos=[[0]]}} {{sixdef=[[0]]}}`, roll => {
+      const r = roll.results;
+      const out = resolveCheck([r.d1.result, r.d2.result, r.d3.result], num(a[stat]), r.mod.result, r.target.result, a.play_mode, kind, damage === null ? r.weapon.result : damage, r.dbmin.result);
+      finishRoll(roll.rollId, {total: out.total, margin: out.margin, success: +out.success, damage: out.damage, db: +out.db, triples: +(out.triples && out.success), ones: +out.ones, twos: +out.twos, sixdef: +(stat === 'rd' && out.success && out.sixes && a.play_mode !== 'pvp')});
+    });
+}
+/* Solo/co-op crew worker. Shared rules functions are embedded by build.py. */
+const memberFields = ['member_name','profile','active','health','health_max','luck','armor_dice','incoming_damage',...STATS];
+function readRows(section, fields, done) {
+  getSectionIDs(section, ids => {
+    const keys = ids.flatMap(id => fields.map(f => `${section}_${id}_${f}`));
+    getAttrs(keys, attrs => done(ids.map(id => {
+      const row = {id}; fields.forEach(f => row[f] = attrs[`${section}_${id}_${f}`]); return row;
+    })));
+  });
+}
+function refreshCrew() {
+  getAttrs(['crew_view','selected_member'], settings => {
+    readRows('repeating_members', memberFields, members => {
+      const selected = members.find(m => m.id === settings.selected_member && (settings.crew_view !== 'battle' || m.active === '1'));
+      const updates = {selected_name:selected ? selected.member_name || 'Unnamed member' : 'Choose Loadout on a roster entry', selected_ready:selected ? '1' : '0', selected_can_roll:selected && selected.profile !== 'foe' && selected.active === '1' ? '1' : '0'};
+      members.forEach(m => {
+        updates[`repeating_members_${m.id}_row_visible`] = settings.crew_view !== 'battle' || m.active === '1' ? '1' : '0';
+      });
+      setAttrs(updates, {silent:true});
+      ['weapons','traits'].forEach(type => readRows(`repeating_${type}`, ['owner'], rows => {
+        const flags = {};
+        rows.forEach(row => {
+          flags[`repeating_${type}_${row.id}_row_visible`] = selected && (!row.owner || row.owner === selected.id) ? '1' : '0';
+        });
+        setAttrs(flags, {silent:true});
+      }));
+    });
+  });
+}
+on('sheet:opened change:crew_view change:repeating_members remove:repeating_members', refreshCrew);
+on('clicked:repeating_members:loadout', event => {
+  const id = event.sourceAttribute.replace(/^repeating_members_/, '').replace(/_loadout$/, '');
+  setAttrs({selected_member:id}, {silent:true}, refreshCrew);
+});
+['weapons','traits'].forEach(type => {
+  on(`change:repeating_${type}`, event => {
+    const match = event.sourceAttribute.match(new RegExp(`^(repeating_${type}_[^_]+)_`));
+    if (!match) return;
+    const prefix=match[1];
+    getAttrs([`${prefix}_owner`,'selected_member'], attrs => {
+      if (!attrs[`${prefix}_owner`] && attrs.selected_member) {
+        setAttrs({[`${prefix}_owner`]:attrs.selected_member}, {silent:true}, refreshCrew);
+      } else refreshCrew();
+    });
+  });
+});
+function fetchMember(id, callback) {
+  const prefix=`repeating_members_${id}`;
+  getAttrs(memberFields.map(f=>`${prefix}_${f}`), attrs => {
+    const member={}; memberFields.forEach(f=>member[f]=attrs[`${prefix}_${f}`]);
+    callback(member);
+  });
+}
+function canRoll(member) { return member.profile !== 'foe' && member.active === '1' && !!member.member_name; }
+STATS.forEach(stat => on(`clicked:repeating_members:${stat}`, event => {
+  const id=event.sourceAttribute.replace(/^repeating_members_/, '').replace(new RegExp(`_${stat}$`), '');
+  fetchMember(id, member => {
+    if (!canRoll(member)) return;
+    const kind=['ma','ra'].includes(stat)?'attack':['md','rd'].includes(stat)?'defense':'check';
+    rollStat({...member,character_name:member.member_name,sheet_type:'party',play_mode:'solo'}, stat, kind, kind==='attack'?null:num(member.incoming_damage));
+  });
+}));
+on('clicked:repeating_weapons:attack', event => {
+  const prefix=event.sourceAttribute.replace(/_attack$/,'');
+  getAttrs([`${prefix}_owner`,`${prefix}_weapon_name`,`${prefix}_weapon_damage`,`${prefix}_weapon_type`], a => {
+    if (!a[`${prefix}_owner`]) return;
+    fetchMember(a[`${prefix}_owner`], member => {
+      if (!canRoll(member)) return;
+      rollStat({...member,character_name:member.member_name,sheet_type:'party',play_mode:'solo'},a[`${prefix}_weapon_type`]==='ranged'?'ra':'ma','attack',num(a[`${prefix}_weapon_damage`]),a[`${prefix}_weapon_name`]||'Weapon');
+    });
+  });
+});
+on('clicked:repeating_members:armor', event => {
+  const id=event.sourceAttribute.replace(/^repeating_members_/, '').replace(/_armor$/,'');
+  fetchMember(id, member => {
+    if (!canRoll(member)) return;
+    const count=Math.max(0,Math.min(12,Math.floor(num(member.armor_dice))));
+    if (!count) return;
+    const fields=Array.from({length:count},(_,i)=>`{{save${i}=[[1d6]]}}`).join(' ');
+    startRoll(`&{template:tfa} {{name=${safeText(member.member_name)}}} {{action=Armor save}} {{armor=1}} ${fields} {{saved=[[0]]}} {{short=[[0]]}}`, roll => {
+      const dice=Array.from({length:count},(_,i)=>roll.results[`save${i}`].result);
+      finishRoll(roll.rollId,{saved:resolveArmor(dice),short:+(dice.filter(d=>d===1).length>=2||dice.filter(d=>d===2).length>=2)});
+    });
+  });
+});
+
+</script>

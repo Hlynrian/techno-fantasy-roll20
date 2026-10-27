@@ -1,0 +1,106 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TFA 2E Solo Crew · Layout preview</title><style>body{margin:0;padding:20px;background:#d7ddd6}fieldset{border:0;margin:0;padding:0}.preview-note{font:13px Arial;max-width:1100px}button:disabled{opacity:.65}</style><style>.solo-sheet { --ink:#253331;--line:#c9cec3;--accent:#286559; background:#f3f2e9;color:var(--ink);font:13px Arial,sans-serif;max-width:1100px;padding:20px;box-sizing:border-box; }
+.solo-sheet * {box-sizing:border-box;}
+.solo-sheet header {border-top:4px solid var(--accent);padding-top:12px;margin-bottom:16px;}
+.solo-sheet .eyebrow {color:var(--accent);font-size:10px;letter-spacing:1.5px;font-weight:bold;}
+.solo-sheet h1 {font:28px Georgia,serif;margin:7px 0;}
+.solo-sheet h2 {font:18px Georgia,serif;margin:18px 0 10px;border-top:1px solid var(--line);padding-top:12px;}
+.solo-sheet h3 {font:16px Georgia,serif;margin:12px 0 8px;}
+.solo-sheet label {display:flex;flex-direction:column;gap:4px;width:auto;font-size:10px;font-weight:bold;margin:0;min-width:0;}
+.solo-sheet input[type=text],.solo-sheet input[type=number],.solo-sheet select,.solo-sheet textarea {width:100%;min-width:0;height:29px;border:1px solid var(--line);border-radius:3px;padding:4px 6px;background:#fffdf6;color:var(--ink);font:12px Arial,sans-serif;box-shadow:none;}
+.solo-sheet textarea {height:48px;resize:vertical;}
+.solo-sheet input[type=checkbox] {width:15px;height:15px;margin:0;}
+.solo-sheet button[type=action] {background:var(--accent);color:white;border:0;border-radius:3px;padding:6px 8px;font:11px Arial,sans-serif;cursor:pointer;text-shadow:none;}
+.solo-sheet input:focus,.solo-sheet select:focus,.solo-sheet textarea:focus,.solo-sheet button:focus-visible {outline:2px solid var(--accent);outline-offset:1px;}
+.solo-sheet .crew-bar {display:grid;grid-template-columns:2fr 1.6fr .6fr .6fr .8fr;gap:8px;}
+.solo-sheet .hint {font-size:11px;line-height:1.5;color:#58665e;margin:7px 0;}
+.solo-sheet .member-card {border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;background:#e9ece2;margin:8px 0;padding:10px;}
+.solo-sheet .member-summary {display:grid;grid-template-columns:50px minmax(110px,2fr) 70px 46px 46px 46px 65px;gap:7px;align-items:end;}
+.solo-sheet .check {align-items:center;gap:6px;padding-bottom:6px;}
+.solo-sheet .quick-stats {display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin:9px 0;}
+.solo-sheet .quick-stats label {text-align:center;}
+.solo-sheet .quick-stats input {text-align:center;}
+.solo-sheet .party-stat {display:grid;grid-template-columns:1fr;gap:3px;}
+.solo-sheet .quick-stats button {padding:3px;font-size:10px;}
+.solo-sheet .foe-stat,.solo-sheet .foe-only {display:none;}
+.solo-sheet .profile-state[value=foe] ~ .quick-stats .party-stat,.solo-sheet .profile-state[value=foe] ~ * .party-only {display:none;}
+.solo-sheet .profile-state[value=foe] ~ .quick-stats .foe-stat {display:block;}
+.solo-sheet .profile-state[value=foe] ~ .expand-toggle:checked ~ .foe-only {display:block;}
+.solo-sheet .active-state[value="0"] ~ .quick-stats button,.solo-sheet .active-state[value="0"] ~ .member-details button {display:none;}
+.solo-sheet .member-combat {display:grid;grid-template-columns:60px 60px 65px 1fr;gap:8px;}
+.solo-sheet .expand-toggle {margin-top:10px!important;vertical-align:middle;}
+.solo-sheet .expand-label {font-size:11px;margin-left:6px;}
+.solo-sheet .member-details {display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:10px;}
+.solo-sheet .expand-toggle:checked ~ .member-details {display:block;}
+.solo-sheet .detail-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:8px;}
+.solo-sheet .row-visible[value="0"] ~ .member-card,.solo-sheet .row-visible[value="0"] ~ .loadout-card {display:none;}
+.solo-sheet .loadout-card {border:1px solid var(--line);padding:10px;margin:7px 0;border-radius:4px;}
+.solo-sheet .weapon-grid {display:grid;grid-template-columns:2fr 1fr .7fr .9fr 60px;gap:8px;align-items:end;margin-bottom:8px;}
+.solo-sheet .trait-grid {display:grid;grid-template-columns:4fr 1fr;gap:8px;margin-bottom:8px;}
+.solo-sheet .selected-ready[value="0"] ~ .loadout-editor {display:none;}
+.solo-sheet .selected-can-roll[value="0"] ~ .loadout-editor button[name=act_attack] {display:none;}
+.solo-sheet footer {margin-top:16px;font-size:10px;color:#58665e;}
+.solo-sheet .preview-controls {margin:7px 0;display:flex;gap:8px;}
+.solo-sheet .preview-controls button {padding:5px 8px;background:#fffdf6;border:1px solid var(--line);border-radius:3px;cursor:pointer;}
+@media(max-width:650px){.solo-sheet{padding:12px;}.solo-sheet .crew-bar{grid-template-columns:1fr 1fr;}.solo-sheet .member-summary{grid-template-columns:40px minmax(90px,1fr) 65px;}.solo-sheet .quick-stats{grid-template-columns:repeat(4,minmax(0,1fr));}.solo-sheet .weapon-grid{grid-template-columns:1fr 1fr;}.solo-sheet .detail-grid{grid-template-columns:1fr 1fr;}}
+
+.sheet-rolltemplate-tfa .tfa-roll { border:1px solid #26695f; border-top:5px solid #26695f; background:#f4f2e9; padding:12px; color:#202e30; font:13px/1.5 Arial,sans-serif; }
+.sheet-rolltemplate-tfa h3 { margin:0 0 5px; color:#26695f; }
+.sheet-rolltemplate-tfa .outcome { font-weight:bold; letter-spacing:1px; }
+
+.solo-sheet .quick-stats,.solo-sheet .member-combat {display:none;}
+.solo-sheet .expand-toggle:checked ~ .quick-stats,.solo-sheet .expand-toggle:checked ~ .member-combat {display:grid;}
+</style><p class="preview-note">Interactive layout preview · sample data is not saved. Rolls are available inside Roll20 only.</p><div class="solo-sheet"><header><div class="eyebrow">TECHNO-FANTASY ADVENTURE 2E · SOLO / CO-OP</div><h1>Crew dossier</h1></header><div class="crew-bar"><label>Crew name<input type="text" name="attr_character_name" value="" ></label><label>View<select name="attr_crew_view"><option value="roster">Full roster</option><option value="battle">Battle · active only</option></select></label><label>Round<input type="number" name="attr_round" value="1" ></label><label>Heat<input type="number" name="attr_heat" value="0" ></label><label>Shared Luck<input type="number" name="attr_shared_luck" value="0" ></label></div><p class="hint">Add members and foes below. Mark participants Active, then switch to Battle view. Expand details only when needed. Loadout opens that entry’s weapon and trait lists. X-Factor is a reminder; apply its TN, damage and action effects manually.</p><h2>Roster</h2><fieldset class="repeating_members"><input type="hidden" name="attr_row_visible" class="row-visible" value="1"><div class="member-card"><input type="hidden" name="attr_profile" class="profile-state" value="party"><input type="hidden" name="attr_active" class="active-state" value="1"><div class="member-summary"><label class="check"><input type="checkbox" name="attr_active" value="1" checked>Active</label><label>Name<input type="text" name="attr_member_name" value="" ></label><label>Profile<select name="attr_profile"><option value="party">Party</option><option value="foe">Foe</option></select></label><label>HP<input type="number" name="attr_health" value="15" ></label><label>Max<input type="number" name="attr_health_max" value="15" ></label><label>Chit<input type="text" name="attr_initiative" value="" ></label><button type="action" name="act_loadout">Loadout</button></div><input type="checkbox" name="attr_expanded" class="expand-toggle" value="1" title="Expand combat and details"><span class="expand-label">Combat &amp; details</span><div class="quick-stats"><label><span>MA</span><span class="party-stat"><button type="action" name="act_ma">Roll</button><input type="number" name="attr_ma" value="0" aria-label="MA bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_ma" value="11" aria-label="MA target number"></span></label><label><span>MD</span><span class="party-stat"><button type="action" name="act_md">Roll</button><input type="number" name="attr_md" value="0" aria-label="MD bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_md" value="11" aria-label="MD target number"></span></label><label><span>RA</span><span class="party-stat"><button type="action" name="act_ra">Roll</button><input type="number" name="attr_ra" value="0" aria-label="RA bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_ra" value="11" aria-label="RA target number"></span></label><label><span>RD</span><span class="party-stat"><button type="action" name="act_rd">Roll</button><input type="number" name="attr_rd" value="0" aria-label="RD bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_rd" value="11" aria-label="RD target number"></span></label><label><span>FIT</span><span class="party-stat"><button type="action" name="act_fit">Roll</button><input type="number" name="attr_fit" value="0" aria-label="FIT bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_fit" value="11" aria-label="FIT target number"></span></label><label><span>INT</span><span class="party-stat"><button type="action" name="act_int">Roll</button><input type="number" name="attr_int" value="0" aria-label="INT bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_int" value="11" aria-label="INT target number"></span></label><label><span>CHA</span><span class="party-stat"><button type="action" name="act_cha">Roll</button><input type="number" name="attr_cha" value="0" aria-label="CHA bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_cha" value="11" aria-label="CHA target number"></span></label><label><span>PER</span><span class="party-stat"><button type="action" name="act_per">Roll</button><input type="number" name="attr_per" value="0" aria-label="PER bonus"></span><span class="foe-stat"><input type="number" name="attr_tn_per" value="11" aria-label="PER target number"></span></label></div><p class="foe-only hint">Foe: full target numbers, no rolls.</p><div class="member-combat"><label>Move<input type="number" name="attr_move" value="5" ></label><label class="party-only">Luck<input type="number" name="attr_luck" value="0" min="0"></label><label>X-Factor<input type="number" name="attr_xfactor" value="0" ></label><label>Conditions<input type="text" name="attr_conditions" value="" ></label></div><div class="member-details"><div class="detail-grid"><label>Role<select name="attr_role"><option>Fighter</option><option>Shooter</option><option>Champion</option><option>Specialist</option><option>Other</option></select></label><label>Type / power level<input type="text" name="attr_power" value="Standard" ></label><label>Armor dice<input type="number" name="attr_armor_dice" value="0" ></label><label>Incoming damage bonus<input type="number" name="attr_incoming_damage" value="2" ></label><label>Armor / shield<input type="text" name="attr_armor_name" value="" ></label><div class="party-only"><button type="action" name="act_armor">Armor save</button></div><label class="party-only">Background<input type="text" name="attr_background"></label><label>Boons<input type="number" name="attr_boons" value="0" ></label><label>Bumps<input type="number" name="attr_bumps" value="0" ></label></div><label>Description / gear / campaign notes<textarea name="attr_notes"></textarea></label></div></div></fieldset><h2>Selected loadout: <span name="attr_selected_name">Choose Loadout on a roster entry</span></h2><input type="hidden" name="attr_selected_member"><input type="hidden" name="attr_selected_ready" class="selected-ready" value="0"><input type="hidden" name="attr_selected_can_roll" class="selected-can-roll" value="0"><div class="loadout-editor"><p class="hint">Lists below belong to the selected roster entry. New entries are linked when you edit them. Use Add and Modify to add, delete or reorder. Selecting another member preserves existing lists.</p><h3>Weapons</h3><fieldset class="repeating_weapons"><input type="hidden" name="attr_owner"><input type="hidden" name="attr_row_visible" class="row-visible" value="1"><div class="loadout-card"><div class="weapon-grid"><label>Weapon<input type="text" name="attr_weapon_name" value="" ></label><label>Type<select name="attr_weapon_type"><option value="melee">Melee</option><option value="ranged">Ranged</option></select></label><label>Damage<input type="number" name="attr_weapon_damage" value="2" ></label><label>Range / reach<input type="number" name="attr_weapon_range" value="1" ></label><button type="action" name="act_attack">Attack</button></div><label>Properties<textarea name="attr_weapon_properties"></textarea></label></div></fieldset><h3>Traits & abilities</h3><fieldset class="repeating_traits"><input type="hidden" name="attr_owner"><input type="hidden" name="attr_row_visible" class="row-visible" value="1"><div class="loadout-card"><div class="trait-grid"><label>Trait / ability<input type="text" name="attr_trait_name" value="" ></label><label>Uses<input type="number" name="attr_trait_uses" value="0" ></label></div><label>Effects / limitations<textarea name="attr_trait_notes"></textarea></label></div></fieldset></div><label>Crew notes<textarea name="attr_crew_notes"></textarea></label><footer>Unofficial TFA 2E sheet · Rules © Scott R. Pyle / Four-Color Studios</footer></div>
+
+
+<script>// Layout preview only: simulates repeating rows. Roll20 supplies its own persistence and controls.
+let selected='',nextId=0;
+const templates={};
+function field(row,name){return row.querySelector(`[name="attr_${name}"]:not([type="hidden"])`) || row.querySelector(`[name="attr_${name}"]`);}
+function value(row,name){return field(row,name)?.value||'';}
+function sync(){
+ const battle=document.querySelector('[name=attr_crew_view]').value==='battle';
+ const members=[...document.querySelectorAll('.repeating_members > .preview-row')];
+ for(const row of members){
+  const active=field(row,'active').checked;
+  row.querySelector('.active-state').setAttribute('value',active?'1':'0');
+  row.querySelector('.profile-state').setAttribute('value',value(row,'profile'));
+  row.querySelector('.row-visible').setAttribute('value',!battle||active?'1':'0');
+ }
+ const member=members.find(row=>row.dataset.id===selected&&(!battle||field(row,'active').checked));
+ document.querySelector('[name=attr_selected_name]').textContent=member?value(member,'member_name'):'Choose Loadout on a roster entry';
+ document.querySelector('.selected-ready').setAttribute('value',member?'1':'0');
+ document.querySelector('.selected-can-roll').setAttribute('value',member&&field(member,'active').checked&&value(member,'profile')!=='foe'?'1':'0');
+ for(const type of ['weapons','traits'])for(const row of document.querySelectorAll('.repeating_'+type+' > .preview-row')){
+  const visible=member&&value(row,'owner')===selected;
+  row.querySelector('.row-visible').setAttribute('value',visible?'1':'0');
+  row.querySelector('.preview-controls').style.display=visible?'flex':'none';
+ }
+}
+function addRow(type,values={}){
+ const section=document.querySelector('.repeating_'+type),row=templates[type].cloneNode(true);
+ row.dataset.id='preview'+(++nextId);
+ if(type!=='members')field(row,'owner').value=selected;
+ for(const [name,val] of Object.entries(values)){
+  const f=field(row,name);if(!f)continue;if(f.type==='checkbox')f.checked=val==='1';else f.value=val;
+ }
+ const controls=document.createElement('div');controls.className='preview-controls';
+ const remove=document.createElement('button');remove.textContent='Delete entry';remove.onclick=()=>{row.remove();sync();};controls.append(remove);row.append(controls);
+ for(const button of row.querySelectorAll('button[type=action]')){
+  if(button.name==='act_loadout')button.onclick=()=>{selected=row.dataset.id;sync();};else button.disabled=true;
+ }
+ row.addEventListener('change',sync);row.addEventListener('input',sync);section.append(row);sync();return row;
+}
+for(const type of ['members','weapons','traits']){
+ const section=document.querySelector('.repeating_'+type),row=document.createElement('div');row.className='preview-row';
+ while(section.firstChild)row.append(section.firstChild);templates[type]=row;
+ const controls=document.createElement('div');controls.className='preview-controls';const add=document.createElement('button');add.textContent='Add '+(type==='members'?'member / foe':type==='weapons'?'weapon':'trait');add.onclick=()=>addRow(type);controls.append(add);section.after(controls);
+}
+document.querySelector('[name=attr_crew_view]').addEventListener('change',sync);
+addRow('members',{member_name:'Ingrid Ironhand',ma:'3',md:'2',health:'15',luck:'2'});
+addRow('members',{member_name:'Greycrow',ra:'2',active:'1'});
+addRow('members',{member_name:'Reserve scout',active:'0'});
+addRow('members',{member_name:'Mutant Berserker',profile:'foe',tn_ma:'13',tn_md:'13',health:'14'});
+selected=document.querySelector('.repeating_members > .preview-row').dataset.id;
+addRow('weapons',{weapon_name:'Heirloom saber',weapon_damage:'2'});
+addRow('traits',{trait_name:'Mighty Blow'});sync();
+</script></html>
